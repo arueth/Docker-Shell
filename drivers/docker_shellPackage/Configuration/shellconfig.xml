@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ShellsConfiguration xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+                     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                     xmlns="http://schemas.qualisystems.com/ResourceManagement/ShellsConfigurationSchema.xsd">
+    <ResourceTemplates>
+        <ResourceTemplate Name="Docker Host" Model="Docker Host" Driver="Docker Shell Driver">
+            <Description/>
+            <AutoLoad Enable="true">
+                <Description>Validate the Docker host settings.</Description>
+            </AutoLoad>
+            <Attributes>
+                <Attribute Name="Docker API Ports" Value="2375"/>
+                <Attribute Name="Docker API use TLS" Value="False"/>
+            </Attributes>
+        </ResourceTemplate>
+    </ResourceTemplates>
+</ShellsConfiguration>

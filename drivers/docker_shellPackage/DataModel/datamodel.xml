@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="utf-8"?>
+<DataModelInfo xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+               xmlns="http://schemas.qualisystems.com/ResourceManagement/DataModelSchema.xsd">
+    <Attributes>
+        <AttributeInfo Name="Docker API Ports" Type="Numeric" DefaultValue="2375" Description="Port used to connect to dockerd" IsReadOnly="false">
+            <Rules>
+                <Rule Name="Configuration"/>
+                <Rule Name="Setting"/>
+            </Rules>
+        </AttributeInfo>
+        <AttributeInfo Name="Docker API use TLS" Type="Boolean" DefaultValue="False" Description="Use TLS when connecting to dockerd" IsReadOnly="false">
+            <Rules>
+                <Rule Name="Configuration"/>
+                <Rule Name="Setting"/>
+            </Rules>
+        </AttributeInfo>
+        <AttributeInfo Name="Docker Image" Type="String" DefaultValue="alpine" IsReadOnly="false">
+            <Rules>
+                <Rule Name="Configuration"/>
+                <Rule Name="Setting"/>
+            </Rules>
+        </AttributeInfo>
+        <AttributeInfo Name="Docker Image Command" Type="String" DefaultValue="ash" IsReadOnly="false">
+            <Rules>
+                <Rule Name="Configuration"/>
+                <Rule Name="Setting"/>
+            </Rules>
+        </AttributeInfo>
+        <AttributeInfo Name="Docker Image Tag" Type="String" DefaultValue="latest" IsReadOnly="false">
+            <Rules>
+                <Rule Name="Configuration"/>
+                <Rule Name="Setting"/>
+            </Rules>
+        </AttributeInfo>
+        <AttributeInfo Name="Password" Type="Password" DefaultValue="" IsReadOnly="false">
+            <Rules>
+                <Rule Name="Configuration"/>
+            </Rules>
+        </AttributeInfo>
+        <AttributeInfo Name="User" Type="String" DefaultValue="" IsReadOnly="false">
+            <Rules>
+                <Rule Name="Configuration"/>
+            </Rules>
+        </AttributeInfo>
+    </Attributes>
+    <ResourceFamilies>
+        <ResourceFamily Name="Cloud Provider" Description="" IsSearchable="true" IsAdminOnly="true">
+            <AttachedAttributes/>
+            <AttributeValues/>
+            <Models>
+                <ResourceModel Name="Docker Host" Description="" ImagePath="docker.png" SupportsConcurrentCommands="true">
+                    <AttachedAttributes>
+                        <AttachedAttribute Name="Docker API Ports" IsOverridable="true" IsLocal="true">
+                            <AllowedValues/>
+                        </AttachedAttribute>
+                        <AttachedAttribute Name="Docker API use TLS" IsOverridable="true" IsLocal="true">
+                            <AllowedValues/>
+                        </AttachedAttribute>
+                    </AttachedAttributes>
+                    <AttributeValues>
+                        <AttributeValue Name="Docker API Ports" Value="2375"/>
+                        <AttributeValue Name="Docker API use TLS" Value="False"/>
+                    </AttributeValues>
+                    <ParentModels/>
+                    <Drivers>
+                        <DriverName>Docker Shell Driver</DriverName>
+                    </Drivers>
+                    <Scripts/>
+                </ResourceModel>
+            </Models>
+            <Categories/>
+        </ResourceFamily>
+        <ResourceFamily Description="" IsSearchable="true" Name="Generic App Family" ResourceType="Application" IsLockedByDefault="true">
+            <AttachedAttributes/>
+            <AttributeValues/>
+            <Models>
+                <ResourceModel Description="" Name="Generic App Model" SupportsConcurrentCommands="false">
+                    <AttachedAttributes/>
+                    <AttributeValues/>
+                    <ParentModels/>
+                    <Drivers/>
+                    <Scripts/>
+                </ResourceModel>
+            </Models>
+            <Categories/>
+        </ResourceFamily>
+        <ResourceFamily Description="" IsService="true" Name="Deployment Options" ServiceType="Deployment">
+            <AttachedAttributes/>
+            <AttributeValues/>
+            <Models>
+                <ResourceModel Description="" Name="Docker Container" ImagePath="docker.png" SupportsConcurrentCommands="false">
+                    <AttachedAttributes>
+                        <AttachedAttribute Name="Docker Image" IsOverridable="true" IsLocal="true" UserInput="true">
+                            <AllowedValues/>
+                        </AttachedAttribute>
+                        <AttachedAttribute Name="Docker Image Command" IsOverridable="true" IsLocal="true" UserInput="true">
+                            <AllowedValues/>
+                        </AttachedAttribute>
+                        <AttachedAttribute Name="Docker Image Tag" IsOverridable="true" IsLocal="true" UserInput="true">
+                            <AllowedValues/>
+                        </AttachedAttribute>
+                    </AttachedAttributes>
+                    <AttributeValues>
+                        <AttributeValue Name="Docker Image" Value="alpine"/>
+                        <AttributeValue Name="Docker Image Tag" Value="latest"/>
+                        <AttributeValue Name="Docker Image Command" Value="ash"/>
+                    </AttributeValues>
+                    <ParentModels/>
+                    <Drivers>
+                        <DriverName>Docker Container</DriverName>
+                    </Drivers>
+                    <Scripts/>
+                </ResourceModel>
+            </Models>
+        </ResourceFamily>
+    </ResourceFamilies>
+    <DriverDescriptors>
+        <DriverDescriptor Name="Docker Shell Driver" DriverType="PythonDriver"/>
+        <DriverDescriptor Name="Docker Container" DriverType="PythonDriver"/>
+    </DriverDescriptors>
+</DataModelInfo>

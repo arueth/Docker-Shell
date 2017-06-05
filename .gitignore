@@ -1,0 +1,15 @@
+# IDE files
+.idea/
+
+# Additional version files
+drivers/version.txt
+package/version.txt
+
+# Packaging files
+drivers/docker_shell.zip
+drivers/docker_shellPackage/Resource Drivers - Python
+package/build/
+package/cloudshell_cp_docker.egg-info/
+package/dist/
+
+*.pyc

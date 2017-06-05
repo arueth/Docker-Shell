@@ -1,0 +1,7 @@
+<Driver Description="Docker Container" MainClass="driver.DockerContainer" Name="Docker Container" Version="0.1.32">
+    <Layout>
+        <Category Name="App Management">
+            <Command Description="" DisplayName="Deploy" Name="Deploy" Tags="allow_shared" />
+        </Category>
+    </Layout>
+</Driver>
